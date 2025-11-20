@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO: Primary Meta Tags -->
+    <title>Ram Key Realty | Luxury Villas, Plots & 2/3/4 BHK Apartments in Bangalore & Sarjapur Road</title>
+    <meta name="description" content="Find your dream home with Ram Key Realty. We specialize in premium villas, luxury 2/3/4 BHK apartments, and plots for sale in Bangalore, Sarjapur Road, and Sarjapura. Expert legal due diligence and property advisory.">
+    <meta name="keywords" content="Real Estate Bangalore, Villas in Sarjapur Road, 3 BHK Apartments Bangalore, Luxury Villas Bangalore, Plots in Sarjapura, Ram Key Realty, 2 BHK Flats Sarjapur, Premium Real Estate, Property Consultants Bangalore, Affordable Housing">
+    <meta name="author" content="Ram Key Realty">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook (Social SEO) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ramkeyrealty.com/">
+    <meta property="og:title" content="Ram Key Realty | Premium Property Partner in Bangalore">
+    <meta property="og:description" content="Exclusive listings of luxury villas and apartments in Sarjapur Road and Bangalore. Trusted property partners.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2670&auto=format&fit=crop">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Swiper.js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SEO: JSON-LD Schema Markup for Local Business -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "RealEstateAgent",
+      "name": "Ram Key Realty",
+      "image": "https://placehold.co/200x60/000000/FF5F1F?text=RamKey+Logo",
+      "url": "https://www.ramkeyrealty.com",
+      "telephone": "+919916547171",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "#72/2, Sulikunte, Sarjapur Road",
+        "addressLocality": "Bangalore",
+        "addressRegion": "KA",
+        "postalCode": "562125",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "12.895",
+        "longitude": "77.737"
+      },
+      "priceRange": "$$-$$$$",
+      "description": "Ram Key Realty is a premier real estate firm in Bangalore specializing in buying and selling luxury villas, apartments, and plots in Sarjapur Road and surrounding areas."
+    }
+    </script>
+
+    <style>
+        :root {
+            --neon-orange: #FF5F1F;
+            --neon-green: #39FF14;
+            --dark-text: #1a1a1a;
+            --black-bg: #000000;
+            --dark-grey: #0a0a0a;
+            --light-gray-bg: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-text);
+            background-color: #fff;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Custom Color Utilities */
+        .text-neon-orange { color: var(--neon-orange); }
+        .text-neon-green { color: var(--neon-green); }
+        
+        .bg-neon-orange { background-color: var(--neon-orange); }
+        .bg-neon-green { background-color: var(--neon-green); }
+        
+        .border-neon-orange { border-color: var(--neon-orange); }
+        .border-neon-green { border-color: var(--neon-green); }
+
+        .hover-text-neon-orange:hover { color: var(--neon-orange); }
+        .hover-bg-neon-orange:hover { background-color: var(--neon-orange); }
+        .hover-border-neon-orange:hover { border-color: var(--neon-orange); }
+        
+        .hover-text-neon-green:hover { color: var(--neon-green); }
+
+        /* Glow Effects */
+        .glow-text-orange { text-shadow: 0 0 10px rgba(255, 95, 31, 0.6); }
+        .glow-box-orange { box-shadow: 0 0 15px rgba(255, 95, 31, 0.4); }
+        .glow-text-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+        
+        /* Header Styles */
+        .header {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             z-index: 100;
+             transition: all 0.3s ease;
+             background: rgba(0, 0, 0, 0.85);
+             backdrop-filter: blur(10px);
+             border-bottom: 1px solid rgba(57, 255, 20, 0.3); /* Neon Green Border */
+        }
+
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--neon-orange);
+            box-shadow: 0 0 8px var(--neon-orange);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Card Hover Effects */
+        .service-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(57, 255, 20, 0.2); /* Green Glow */
+            border-color: var(--neon-green);
+        }
+
+        /* Why Choose Us Interactive Box */
+        .interactive-box {
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            cursor: default;
+        }
+        .interactive-box:hover {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: var(--neon-orange);
+            transform: translateX(10px);
+            border-radius: 0.75rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
+            margin-left: -1rem;
+            margin-right: -1rem;
+            box-shadow: 0 0 15px rgba(255, 95, 31, 0.1);
+        }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #111;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: var(--neon-orange);
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--neon-green);
+        }
+        
+        /* Neon Button Utility */
+        .btn-neon {
+            background-color: var(--neon-orange);
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 31, 0.4);
+        }
+        .btn-neon:hover {
+            background-color: white;
+            color: var(--neon-orange);
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.8);
+        }
+    </style>
+</head>
+<body class="bg-white overflow-x-hidden">
+
+    <!-- Header -->
+    <header class="header py-3">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <!-- Logo Placeholder with Descriptive Alt Text -->
+            <a href="#" class="flex items-center gap-2 cursor-pointer">
+                <img src="https://placehold.co/200x60/000000/FF5F1F?text=LOGO+HERE&font=montserrat" alt="Ram Key Realty - Real Estate Experts in Bangalore" class="h-10 md:h-14 w-auto object-contain border border-neon-green/30 rounded p-1 bg-black">
+            </a>
+
+            <!-- Desktop Menu -->
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center text-sm font-medium tracking-wide">
+                <a href="#home" class="nav-link text-neon-orange">Home</a>
+                <a href="#about" class="nav-link text-white hover:text-neon-green">About Us</a>
+                <a href="properties.html" class="nav-link text-white hover:text-neon-green">Properties</a>
+                <a href="blog.html" class="nav-link text-white hover:text-neon-green">Blog</a>
+                <a href="#services" class="nav-link text-white hover:text-neon-green">Services</a>
+                <a href="#clientele" class="nav-link text-white hover:text-neon-green">Clientele</a>
+                <a href="#contact" class="px-5 py-2 border border-neon-orange text-neon-orange font-semibold rounded hover:bg-neon-orange hover:text-white hover:shadow-[0_0_15px_rgba(255,95,31,0.6)] transition duration-300">Contact Us</a>
+            </div>
+
+            <!-- Mobile Menu Button -->
+            <div class="lg:hidden">
+                <button id="menu-btn" type="button" class="z-50 block text-white hover:text-neon-green focus:outline-none transition">
+                    <i class="fas fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </nav>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-black border-t border-gray-800 shadow-xl py-6 px-6 transition-all duration-300">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="#home" class="mobile-link text-neon-orange font-semibold py-2">Home</a>
+                <a href="#about" class="mobile-link text-white font-semibold py-2 hover:text-neon-green">About Us</a>
+                <a href="properties.html" class="mobile-link text-white font-semibold py-2 hover:text-neon-green">Properties</a>
+                <a href="blog.html" class="mobile-link text-white font-semibold py-2 hover:text-neon-green">Blog</a>
+                <a href="#services" class="mobile-link text-white font-semibold py-2 hover:text-neon-green">Services</a>
+                <a href="#clientele" class="mobile-link text-white font-semibold py-2 hover:text-neon-green">Clientele</a>
+                <a href="#contact" class="mobile-link bg-neon-orange text-white font-semibold py-3 rounded mt-2">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- 1. Hero Section with Parallax Image -->
+        <section id="home" class="relative h-screen min-h-[600px] flex items-center justify-center text-center text-white bg-[url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?q=80&w=2670&auto=format&fit=crop')] bg-cover bg-center bg-fixed bg-no-repeat">
+            <!-- Dark Overlay for text readability -->
+            <div class="absolute inset-0 bg-black/70 z-0"></div>
+
+            <div class="relative z-10 px-4 max-w-5xl mx-auto mt-16">
+                <h2 class="text-neon-green font-bold tracking-[0.2em] text-sm md:text-base uppercase mb-4 animate-fade-in-up glow-text-green">Welcome to Ram Key Realty</h2>
+                
+                <h1 class="text-2xl md:text-4xl font-black font-montserrat mb-6 leading-snug drop-shadow-lg">
+                    Your Premier Property Partner in <br><span class="text-neon-orange glow-text-orange">Bangalore & Sarjapur Road</span>
+                </h1>
+                
+                <p class="text-sm md:text-base text-gray-200 mb-10 max-w-xl mx-auto font-light leading-relaxed drop-shadow-md">
+                    Specializing in <strong>Luxury Villas</strong>, <strong>Premium 2/3/4 BHK Apartments</strong>, and <strong>Affordable Plots</strong>. We turn aspirations into addresses.
+                </p>
+                
+                <!-- Search Bar Simulation -->
+                <div class="bg-black/40 backdrop-blur-md border border-neon-green/40 rounded-lg p-3 max-w-3xl mx-auto shadow-[0_0_20px_rgba(57,255,20,0.1)]">
+                    <form class="grid grid-cols-1 md:grid-cols-3 gap-3 items-center" action="properties.html">
+                        <div class="relative">
+                            <i class="fas fa-map-marker-alt absolute left-4 top-1/2 transform -translate-y-1/2 text-neon-orange"></i>
+                            <input type="text" placeholder="Search Sarjapur, Whitefield..." aria-label="Search Location" class="w-full pl-10 pr-4 py-3 bg-black/60 text-white border border-gray-700 rounded focus:outline-none focus:border-neon-orange placeholder-gray-400">
+                        </div>
+                        <div class="relative">
+                            <i class="fas fa-home absolute left-4 top-1/2 transform -translate-y-1/2 text-neon-orange"></i>
+                            <select aria-label="Select Property Type" class="w-full pl-10 pr-4 py-3 bg-black/60 text-white border border-gray-700 rounded focus:outline-none focus:border-neon-orange appearance-none cursor-pointer">
+                                <option class="bg-black">Buy Villa / Apartment</option>
+                                <option class="bg-black">Sell Property</option>
+                                <option class="bg-black">Legal Due Diligence</option>
+                                <option class="bg-black">Property Valuation</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="w-full btn-neon py-3 rounded uppercase tracking-wide">
+                            Find Properties
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. Mission & Vision (About) -->
+        <section id="about" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="flex flex-col lg:flex-row items-center gap-12">
+                    <div class="lg:w-1/2 relative">
+                        <div class="absolute -top-4 -left-4 w-24 h-24 border-t-4 border-l-4 border-neon-orange rounded-tl-3xl z-0"></div>
+                        <div class="absolute -bottom-4 -right-4 w-24 h-24 border-b-4 border-r-4 border-neon-green rounded-br-3xl z-0"></div>
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Luxury Apartments Skyline in Bangalore" class="relative z-10 rounded-lg shadow-2xl w-full h-auto object-cover grayscale hover:grayscale-0 transition duration-500">
+                        <div class="absolute -bottom-6 -right-6 w-2/3 bg-black p-6 rounded-lg shadow-xl z-20 border-l-4 border-neon-orange hidden md:block">
+                            <p class="text-white font-montserrat font-bold text-lg">"Simplifying real estate transactions in Sarjapura & Bangalore."</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/2">
+                        <h3 class="text-neon-orange font-bold uppercase tracking-wider mb-2">About Ram Key Realty</h3>
+                        <h2 class="text-4xl font-montserrat font-black text-black mb-6">Trusted. Effective. <br>Client-Centric.</h2>
+                        
+                        <div class="space-y-6 text-gray-700">
+                            <p class="leading-relaxed">
+                                <strong class="text-black bg-neon-orange/20 px-1">Ram Key Realty</strong> is a leading real estate firm in Bangalore, offering a comprehensive suite of services. We combine expert property advisory with seamless solutions for <strong>buying and selling properties in Sarjapur Road</strong> and across the city.
+                            </p>
+                            
+                            <div class="bg-gray-50 p-6 rounded-lg border-l-4 border-neon-green shadow-lg">
+                                <h4 class="text-xl font-bold text-black mb-2">Our Mission</h4>
+                                <p class="text-sm">To be the most trusted real estate partner for villas, plots, and apartments in Bangalore. We safeguard investments through meticulous due diligence and facilitate successful acquisitions.</p>
+                            </div>
+
+                            <ul class="space-y-3">
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-neon-orange text-xl"></i>
+                                    <span>Expert Advisory for <strong>Premium Villas & Flats</strong></span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-neon-orange text-xl"></i>
+                                    <span>Seamless Buying & Selling Solutions</span>
+                                </li>
+                                <li class="flex items-center gap-3">
+                                    <i class="fas fa-check-circle text-neon-orange text-xl"></i>
+                                    <span>Dedicated to Clarity & Security</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. Key Services -->
+        <section id="services" class="py-20 bg-[#0a0a0a]">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <span class="text-neon-green font-bold uppercase tracking-wider glow-text-green">What We Do</span>
+                    <h2 class="text-3xl md:text-4xl font-montserrat font-black text-white mt-2">Our Key Services</h2>
+                    <div class="w-20 h-1 bg-neon-orange mx-auto mt-4 glow-box-orange"></div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Service 1 (Linked to Properties) -->
+                    <a href="properties.html" class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-orange group relative overflow-hidden block cursor-pointer">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-orange transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-orange/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-orange transition-colors duration-300">
+                            <i class="fas fa-handshake text-neon-orange text-2xl group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">Buying & Selling</h3>
+                        <p class="text-gray-400 text-sm mb-4">
+                            <strong class="block mb-1 text-gray-300">For Buyers:</strong> Curated listings of 2/3 BHKs, Luxury Villas, and Plots.
+                            <br>
+                            <strong class="block mt-2 mb-1 text-gray-300">For Sellers:</strong> Strategic marketing for properties in Bangalore.
+                        </p>
+                    </a>
+
+                    <!-- Service 2 -->
+                    <div class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-green group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-green transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-green transition-colors duration-300">
+                            <i class="fas fa-balance-scale text-neon-green text-2xl group-hover:text-black"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-green transition-colors">Due Diligence & Legal</h3>
+                        <p class="text-gray-400 text-sm">
+                            In-depth analysis of property titles, ownership history, and regulatory compliance (BDA/BBMP/RERA) in Bangalore.
+                        </p>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-orange group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-orange transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-orange/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-orange transition-colors duration-300">
+                            <i class="fas fa-chart-line text-neon-orange text-2xl group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">Transaction Advisory</h3>
+                        <p class="text-gray-400 text-sm">
+                            Expert guidance through complex buying, selling, leasing, or investment scenarios in Sarjapur & Whitefield.
+                        </p>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-green group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-green transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-green transition-colors duration-300">
+                            <i class="fas fa-calculator text-neon-green text-2xl group-hover:text-black"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-green transition-colors">Valuation & Assessment</h3>
+                        <p class="text-gray-400 text-sm">
+                            Professional, unbiased assessment of property values in Bangalore based on current market trends.
+                        </p>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-orange group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-orange transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-orange/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-orange transition-colors duration-300">
+                            <i class="fas fa-users text-neon-orange text-2xl group-hover:text-white"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-orange transition-colors">Succession Planning</h3>
+                        <p class="text-gray-400 text-sm">
+                            Structuring property ownership and transfer to future generations to minimize legal complexities.
+                        </p>
+                    </div>
+
+                    <!-- Service 6 -->
+                    <div class="service-card bg-[#111] p-8 rounded-xl border border-gray-800 hover:border-neon-green group relative overflow-hidden">
+                        <div class="absolute top-0 left-0 w-1 h-full bg-neon-green transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <div class="w-14 h-14 bg-neon-green/10 rounded-full flex items-center justify-center mb-6 group-hover:bg-neon-green transition-colors duration-300">
+                            <i class="fas fa-file-contract text-neon-green text-2xl group-hover:text-black"></i>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 text-white group-hover:text-neon-green transition-colors">Land Records Verification</h3>
+                        <p class="text-gray-400 text-sm">
+                            Comprehensive scrutiny of records, approvals, and local documents to establish clear titles in Karnataka.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. Why Choose Us (Dark Section) -->
+        <section class="py-20 bg-black text-white relative overflow-hidden">
+            <!-- Background decorations -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-neon-orange/20 rounded-full blur-[100px]"></div>
+            <div class="absolute bottom-0 left-0 w-96 h-96 bg-neon-green/10 rounded-full blur-[100px]"></div>
+
+            <div class="container mx-auto px-6 relative z-10">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="text-neon-orange font-bold uppercase tracking-wider glow-text-orange">The Ram Key Advantage</span>
+                        <h2 class="text-4xl md:text-5xl font-montserrat font-black mt-2 mb-6">Why Choose <br><span class="text-white border-b-4 border-neon-green">Ram Key Realty?</span></h2>
+                        <p class="text-gray-300 mb-8 text-lg">
+                            In Bangalore's dynamic real estate market—from Sarjapura to HSR Layout—you need a partner who prioritizes your peace of mind and financial success.
+                        </p>
+                        
+                        <!-- Interactive Boxes Wrapper -->
+                        <div class="space-y-6">
+                            <div class="interactive-box flex gap-4 p-2">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#111] flex items-center justify-center border border-neon-green">
+                                    <i class="fas fa-city text-neon-green"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1 text-white">Bangalore & Sarjapur Expertise</h4>
+                                    <p class="text-gray-400 text-sm">Deep understanding of local market dynamics, villa projects, apartment trends, and regulatory nuances.</p>
+                                </div>
+                            </div>
+                            <div class="interactive-box flex gap-4 p-2">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#111] flex items-center justify-center border border-neon-orange">
+                                    <i class="fas fa-shield-alt text-neon-orange"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1 text-white">Trust & Transparency</h4>
+                                    <p class="text-gray-400 text-sm">Upholding high ethical standards with honest, unbiased assessments in every transaction.</p>
+                                </div>
+                            </div>
+                            <div class="interactive-box flex gap-4 p-2">
+                                <div class="flex-shrink-0 w-12 h-12 rounded-full bg-[#111] flex items-center justify-center border border-neon-green">
+                                    <i class="fas fa-user-shield text-neon-green"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1 text-white">Risk Mitigation</h4>
+                                    <p class="text-gray-400 text-sm">Proactive identification of issues to protect investments and maximize your returns.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats / Visual -->
+                    <div class="relative">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-[#111] backdrop-blur-sm p-6 rounded-2xl border border-gray-800 text-center transform translate-y-8 hover:border-neon-green transition duration-300 hover:scale-105 cursor-pointer">
+                                <h3 class="text-4xl font-black text-neon-green mb-2 glow-text-green">100%</h3>
+                                <p class="text-sm font-semibold uppercase tracking-wider text-gray-400">Transparency</p>
+                            </div>
+                            <div class="bg-neon-orange p-6 rounded-2xl text-center text-white shadow-[0_0_20px_rgba(255,95,31,0.4)] hover:scale-105 transition duration-300 cursor-pointer">
+                                <h3 class="text-4xl font-black mb-2">360°</h3>
+                                <p class="text-sm font-semibold uppercase tracking-wider">Advisory</p>
+                            </div>
+                            <div class="bg-[#111] backdrop-blur-sm p-6 rounded-2xl border border-gray-800 text-center transform translate-y-8 hover:border-neon-orange transition duration-300 hover:scale-105 cursor-pointer">
+                                <h3 class="text-4xl font-black text-neon-orange mb-2 glow-text-orange">24/7</h3>
+                                <p class="text-sm font-semibold uppercase tracking-wider text-gray-400">Support</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl text-center text-black shadow-[0_0_20px_rgba(255,255,255,0.2)] hover:scale-105 transition duration-300 cursor-pointer">
+                                <h3 class="text-4xl font-black mb-2">Top</h3>
+                                <p class="text-sm font-semibold uppercase tracking-wider">Legal Vetting</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. Target Clientele (Slider) -->
+        <section id="clientele" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-montserrat font-black text-black">Who We Serve</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">Tailored solutions for diverse real estate needs in Bangalore.</p>
+                </div>
+
+                <!-- Swiper Slider -->
+                <div class="swiper clientele-slider pb-12">
+                    <div class="swiper-wrapper">
+                        <!-- Client 1 -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center border-b-4 border-transparent hover:border-neon-orange transition-all duration-300 h-full flex flex-col items-center justify-center group">
+                                <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center mb-6 text-neon-orange text-2xl group-hover:bg-neon-orange group-hover:text-white transition">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Individuals & Families</h3>
+                                <p class="text-sm text-gray-500">Seeking to buy dream homes, 2/3/4 BHK flats, or sell existing property in Bangalore.</p>
+                            </div>
+                        </div>
+                        <!-- Client 2 -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center border-b-4 border-transparent hover:border-neon-green transition-all duration-300 h-full flex flex-col items-center justify-center group">
+                                <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center mb-6 text-neon-green text-2xl group-hover:bg-neon-green group-hover:text-black transition">
+                                    <i class="fas fa-key"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">First-Time Homebuyers</h3>
+                                <p class="text-sm text-gray-500">Requiring end-to-end guidance and support through the purchasing process.</p>
+                            </div>
+                        </div>
+                        <!-- Client 3 -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center border-b-4 border-transparent hover:border-neon-orange transition-all duration-300 h-full flex flex-col items-center justify-center group">
+                                <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center mb-6 text-neon-orange text-2xl group-hover:bg-neon-orange group-hover:text-white transition">
+                                    <i class="fas fa-gem"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">High-Net-Worth Individuals</h3>
+                                <p class="text-sm text-gray-500">Managing diverse portfolios of Luxury Villas and Premium Plots.</p>
+                            </div>
+                        </div>
+                         <!-- Client 4 -->
+                         <div class="swiper-slide">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center border-b-4 border-transparent hover:border-neon-green transition-all duration-300 h-full flex flex-col items-center justify-center group">
+                                <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center mb-6 text-neon-green text-2xl group-hover:bg-neon-green group-hover:text-black transition">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Corporate Entities</h3>
+                                <p class="text-sm text-gray-500">Requiring services for commercial property acquisition, leasing, or disposition.</p>
+                            </div>
+                        </div>
+                        <!-- Client 5 -->
+                        <div class="swiper-slide">
+                            <div class="bg-gray-50 p-8 rounded-xl text-center border-b-4 border-transparent hover:border-neon-orange transition-all duration-300 h-full flex flex-col items-center justify-center group">
+                                <div class="w-16 h-16 bg-white shadow-md rounded-full flex items-center justify-center mb-6 text-neon-orange text-2xl group-hover:bg-neon-orange group-hover:text-white transition">
+                                    <i class="fas fa-hard-hat"></i>
+                                </div>
+                                <h3 class="text-xl font-bold mb-2">Developers & Investors</h3>
+                                <p class="text-sm text-gray-500">Seeking due diligence, market insights, and strategic brokerage services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-pagination mt-8"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. Contact Section -->
+        <section id="contact" class="py-20 bg-[#0a0a0a]">
+            <div class="container mx-auto px-6">
+                <div class="bg-black rounded-2xl shadow-[0_0_30px_rgba(255,95,31,0.15)] overflow-hidden flex flex-col md:flex-row border border-gray-800">
+                    <!-- Contact Info -->
+                    <div class="md:w-5/12 bg-[#111] p-12 text-white flex flex-col justify-between relative overflow-hidden border-r border-gray-800">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-neon-orange/20 rounded-full blur-2xl"></div>
+                        
+                        <div>
+                            <h3 class="text-3xl font-montserrat font-bold mb-6 text-neon-orange">Get in Touch</h3>
+                            <p class="text-gray-400 mb-8">Ready to find your perfect property in Bangalore? Contact Ram Key Realty today.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start gap-4 group">
+                                    <i class="fas fa-map-marker-alt text-neon-green mt-1 text-xl group-hover:text-white transition"></i>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Visit Us</h5>
+                                        <p class="text-gray-400 text-sm">No.25, Dommasandra to Chandapura Main Road, Near Kunskapsskolan School, Chokkasandra Village, Bangalore 562125</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 group">
+                                    <i class="fas fa-envelope text-neon-green mt-1 text-xl group-hover:text-white transition"></i>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Email Us</h5>
+                                        <p class="text-gray-400 text-sm">contact@ramkeyrealty.com</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start gap-4 group">
+                                    <i class="fas fa-phone text-neon-green mt-1 text-xl group-hover:text-white transition"></i>
+                                    <div>
+                                        <h5 class="font-bold text-lg">Call Us</h5>
+                                        <p class="text-gray-400 text-sm">+91 99165 47171</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-12">
+                            <h5 class="font-bold mb-4">Follow Us</h5>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-orange hover:text-white transition duration-300 text-neon-orange border border-neon-orange/30"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-green hover:text-black transition duration-300 text-neon-green border border-neon-green/30"><i class="fab fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-orange hover:text-white transition duration-300 text-neon-orange border border-neon-orange/30"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="md:w-7/12 p-12 bg-white">
+                        <h3 class="text-2xl font-bold text-black mb-6">Send us a Message</h3>
+                        <form>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-neon-orange focus:ring-1 focus:ring-neon-orange outline-none transition">
+                                </div>
+                                <div>
+                                    <label class="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                                    <input type="text" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-neon-orange focus:ring-1 focus:ring-neon-orange outline-none transition">
+                                </div>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Email Address</label>
+                                <input type="email" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-neon-orange focus:ring-1 focus:ring-neon-orange outline-none transition">
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">I'm interested in</label>
+                                <select class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-neon-orange focus:ring-1 focus:ring-neon-orange outline-none transition">
+                                    <option>Buying Property (Apartment/Villa)</option>
+                                    <option>Selling Property</option>
+                                    <option>Legal Consultation</option>
+                                    <option>Property Valuation</option>
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                <textarea rows="4" class="w-full px-4 py-3 rounded bg-gray-50 border border-gray-200 focus:border-neon-orange focus:ring-1 focus:ring-neon-orange outline-none transition"></textarea>
+                            </div>
+                            <button type="button" class="w-full btn-neon text-white font-bold py-4 rounded uppercase tracking-wider">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white border-t border-neon-orange pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1">
+                    <a href="#" class="text-2xl font-montserrat font-black flex items-center gap-2 mb-6">
+                         <span class="text-neon-orange glow-text-orange">Ram Key Realty</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Your dedicated partner in Bangalore's real estate market. Expert guidance for villas, apartments, and plots.
+                    </p>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Quick Links</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-neon-orange transition">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-neon-orange transition">About Us</a></li>
+                        <li><a href="properties.html" class="hover:text-neon-orange transition">Properties</a></li>
+                        <li><a href="blog.html" class="hover:text-neon-orange transition">Blog</a></li>
+                        <li><a href="index.html#services" class="hover:text-neon-orange transition">Services</a></li>
+                        <li><a href="index.html#clientele" class="hover:text-neon-orange transition">Clientele</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-orange transition">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Services</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="properties.html" class="hover:text-neon-green transition">Property Buying</a></li>
+                        <li><a href="#contact" class="hover:text-neon-green transition">Property Selling</a></li>
+                        <li><a href="#contact" class="hover:text-neon-green transition">Legal Vetting</a></li>
+                        <li><a href="#contact" class="hover:text-neon-green transition">Valuation</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Contact</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li>No.25, Dommasandra to Chandapura Main Road, Near Kunskapsskolan School, Chokkasandra Village, Bangalore 562125</li>
+                        <li>+91 99165 47171</li>
+                        <li>contact@ramkeyrealty.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Socials</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-orange hover:text-white transition duration-300 text-neon-orange border border-neon-orange/30"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-neon-green hover:text-black transition duration-300 text-neon-green border border-neon-green/30"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+                <p>&copy; 2025 Ram Key Realty. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-neon-orange">Privacy Policy</a>
+                    <a href="#" class="hover:text-neon-orange">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Mobile Menu Toggle
+            const menuBtn = document.getElementById('menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (menuBtn) {
+                menuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+            
+            // Close mobile menu on link click
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                });
+            });
+
+            // Swiper Initialization for Clientele
+            const clienteleSwiper = new Swiper('.clientele-slider', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 20,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 },
+                }
+            });
+
+            // Header scroll effect
+            const header = document.querySelector('.header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.background = 'rgba(0, 0, 0, 0.95)';
+                    header.style.padding = '0.5rem 0';
+                } else {
+                    header.style.background = 'rgba(0, 0, 0, 0.85)';
+                    header.style.padding = '0.75rem 0';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
