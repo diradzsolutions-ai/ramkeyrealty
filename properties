@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Properties | Ram Key Realty - Villas, Plots & Apartments in Bangalore</title>
+    <meta name="description" content="Explore premium property listings in Bangalore including Manyata Ekamoi plots, NVT Symphony villas, and Nambiar District 25 apartments.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --neon-orange: #FF5F1F;
+            --neon-green: #39FF14;
+            --black-bg: #000000;
+            --dark-grey: #111111;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--black-bg);
+            color: white;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Utilities */
+        .text-neon-orange { color: var(--neon-orange); }
+        .text-neon-green { color: var(--neon-green); }
+        .bg-neon-orange { background-color: var(--neon-orange); }
+        .border-neon-orange { border-color: var(--neon-orange); }
+        .border-neon-green { border-color: var(--neon-green); }
+
+        /* Glow Effects */
+        .glow-text-orange { text-shadow: 0 0 10px rgba(255, 95, 31, 0.6); }
+        .glow-text-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.6); }
+
+        /* Header Styles */
+        .header {
+             position: fixed;
+             top: 0;
+             left: 0;
+             width: 100%;
+             z-index: 100;
+             background: rgba(0, 0, 0, 0.9);
+             backdrop-filter: blur(10px);
+             border-bottom: 1px solid rgba(57, 255, 20, 0.3);
+        }
+
+        .nav-link { position: relative; transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--neon-green); }
+
+        /* Card Styles */
+        .property-card {
+            background: var(--dark-grey);
+            border: 1px solid #222;
+            transition: all 0.3s ease;
+        }
+        .property-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-orange);
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.15);
+        }
+
+        /* Form Elements */
+        .glass-input {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #333;
+            color: white;
+        }
+        .glass-input:focus {
+            border-color: var(--neon-green);
+            outline: none;
+            box-shadow: 0 0 10px rgba(57, 255, 20, 0.2);
+        }
+
+        /* Neon Button */
+        .btn-neon {
+            background-color: var(--neon-orange);
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(255, 95, 31, 0.4);
+        }
+        .btn-neon:hover {
+            background-color: white;
+            color: var(--neon-orange);
+            box-shadow: 0 0 20px rgba(255, 95, 31, 0.8);
+        }
+
+        /* Modal Styles */
+        .modal {
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        .modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: all 0.3s ease;
+        }
+        .modal.active .modal-content {
+            transform: scale(1);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="header py-3">
+        <nav class="container mx-auto px-6 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 cursor-pointer">
+                <img src="https://placehold.co/200x60/000000/FF5F1F?text=RamKey+Realty&font=montserrat" alt="Ram Key Realty Logo" class="h-10 md:h-12 w-auto object-contain border border-neon-green/30 rounded p-1 bg-black">
+            </a>
+            <div class="hidden lg:flex space-x-6 xl:space-x-8 items-center text-sm font-medium tracking-wide">
+                <a href="index.html" class="nav-link text-white">Home</a>
+                <a href="index.html#about" class="nav-link text-white hover:text-neon-green">About Us</a>
+                <a href="properties.html" class="nav-link text-neon-orange">Properties</a>
+                <a href="blog.html" class="nav-link text-white hover:text-neon-green">Blog</a>
+                <a href="index.html#services" class="nav-link text-white hover:text-neon-green">Services</a>
+                <a href="index.html#clientele" class="nav-link text-white hover:text-neon-green">Clientele</a>
+                <a href="index.html#contact" class="px-5 py-2 border border-neon-orange text-neon-orange font-semibold rounded hover:bg-neon-orange hover:text-white hover:shadow-[0_0_15px_rgba(255,95,31,0.6)] transition duration-300">Contact Us</a>
+            </div>
+            <div class="lg:hidden">
+                <button id="menu-btn" class="text-white hover:text-neon-green text-2xl"><i class="fas fa-bars"></i></button>
+            </div>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden absolute top-full left-0 w-full bg-black border-t border-gray-800 shadow-xl py-6 px-6">
+            <div class="flex flex-col space-y-4 text-center">
+                <a href="index.html" class="text-white font-semibold py-2 hover:text-neon-green">Home</a>
+                <a href="index.html#about" class="text-white font-semibold py-2 hover:text-neon-green">About Us</a>
+                <a href="properties.html" class="text-neon-orange font-semibold py-2">Properties</a>
+                <a href="blog.html" class="text-white font-semibold py-2 hover:text-neon-green">Blog</a>
+                <a href="index.html#services" class="text-white font-semibold py-2 hover:text-neon-green">Services</a>
+                <a href="index.html#clientele" class="text-white font-semibold py-2 hover:text-neon-green">Clientele</a>
+                <a href="index.html#contact" class="bg-neon-orange text-white font-semibold py-3 rounded mt-2">Contact Us</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Content -->
+    <main class="pt-32 pb-24 px-6">
+        <div class="container mx-auto">
+            <div class="mb-12 text-center">
+                <h1 class="text-3xl md:text-5xl font-black text-white mb-4 uppercase tracking-wide"><span class="text-neon-orange glow-text-orange">Exclusive</span> Listings</h1>
+                <p class="text-gray-400 max-w-2xl mx-auto font-light">Discover our portfolio of premium plots, luxury villas, and modern apartments in Bangalore.</p>
+            </div>
+
+            <!-- Filter Bar (Visual) -->
+            <div class="bg-[#111] p-6 rounded-xl mb-12 flex flex-col md:flex-row gap-4 border border-gray-800 shadow-lg">
+                <div class="flex-1 relative">
+                    <i class="fas fa-search absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-500"></i>
+                    <input type="text" placeholder="Search Location..." class="w-full glass-input rounded-lg pl-10 pr-4 py-3 text-sm">
+                </div>
+                <select class="glass-input rounded-lg px-4 py-3 text-sm w-full md:w-48 appearance-none cursor-pointer">
+                    <option class="bg-black text-gray-400">Property Type</option>
+                    <option class="bg-black">Villa</option>
+                    <option class="bg-black">Apartment</option>
+                    <option class="bg-black">Plot</option>
+                </select>
+                <button class="btn-neon px-8 py-3 rounded-lg uppercase tracking-wide text-sm">Search</button>
+            </div>
+
+            <!-- SECTION 1: APARTMENTS -->
+            <div id="apartments" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-l-4 border-neon-green pl-4">Premium Apartments</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Nambiar District 25 -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-nambiar')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-gray-700 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Under Construction</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">Nambiar District 25</h3>
+                            <p class="text-gray-400 text-sm mb-4">A massive 100-acre township "The Soho Life" with 125+ amenities.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">2 - 4.5 BHK</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Amberstone -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-amberstone')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1574362848149-11496d93a7c7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-gray-700 text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Under Construction</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">Amberstone (Ventara & Sleek)</h3>
+                            <p class="text-gray-400 text-sm mb-4">Luxury low-density towers with no common walls and mini forests.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">3 & 4 BHK</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Abhee Kings Court -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-abhee')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1460317442991-0ec209397118?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-neon-orange text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ready to Move</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">Abhee Kings Court</h3>
+                            <p class="text-gray-400 text-sm mb-4">Premium residential project near Dommasandra Circle with 70% open space.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">2 & 3 BHK</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 2: VILLAS -->
+            <div id="villas" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-l-4 border-neon-orange pl-4">Luxury Villas</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- NVT Symphony -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-nvt')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-neon-orange text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ready to Move</span>
+                            <span class="absolute bottom-4 right-4 text-white font-bold text-xl drop-shadow-md">₹ 4 Cr</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">NVT Symphony Of Orchards</h3>
+                            <p class="text-gray-400 text-sm mb-4">Nature-centric 4 BHK villas with private backyards and fruit-bearing trees.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">4 BHK • 2931-4096 sq.ft</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Geown Oasis -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-geown')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1600596542815-2251c3052db8?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-neon-orange text-white text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Ready to Move</span>
+                            <span class="absolute bottom-4 right-4 text-white font-bold text-xl drop-shadow-md">₹ 1.7 Cr</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">Geown Oasis</h3>
+                            <p class="text-gray-400 text-sm mb-4">Spacious 3 & 4 BHK villas located off Sarjapur Road with resort-style amenities.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">3 & 4 BHK</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SECTION 3: PLOTS -->
+            <div id="plots" class="mb-16">
+                <h2 class="text-2xl md:text-3xl font-bold text-white mb-8 border-l-4 border-neon-green pl-4">Premium Plots</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- Manyata Ekamoi -->
+                    <div class="property-card rounded-2xl overflow-hidden group block relative cursor-pointer" onclick="openModal('modal-manyata')">
+                        <div class="relative h-64 overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1558036117-15d82a90b9b1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+                            <span class="absolute top-4 left-4 bg-neon-green text-black text-[10px] font-bold px-3 py-1 rounded uppercase tracking-wider">Plots</span>
+                            <span class="absolute bottom-0 left-0 w-full p-4 bg-gradient-to-t from-black to-transparent text-white font-bold">Off Sarjapur Road</span>
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold text-white mb-2 group-hover:text-neon-orange transition">Manyata Ekamoi</h3>
+                            <p class="text-gray-400 text-sm mb-4">Japanese-inspired wellness plots designed around Shizen, Yūgen, and Seijaku.</p>
+                            <div class="flex justify-between items-center border-t border-gray-800 pt-4">
+                                <span class="text-xs text-neon-green font-semibold">2400 - 6000+ Sq.ft</span>
+                                <button class="text-sm text-neon-orange font-bold hover:underline">View Details <i class="fas fa-arrow-right ml-1"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- MODALS -->
+    
+    <!-- Modal: Manyata Ekamoi -->
+    <div id="modal-manyata" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-green w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-manyata')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-neon-green mb-2">Manyata Ekamoi</h2>
+                <p class="text-gray-400 mb-6">Luxury Plotted Development | Off Sarjapur Road</p>
+                
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <div>
+                        <h4 class="text-neon-orange font-bold text-lg mb-2">Overview</h4>
+                        <p>Premium villa plots inspired by Japanese wellness philosophies. Emphasizes a serene, low-density living environment with extensive open spaces.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Core Principles</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Shizen:</strong> 60% open spaces & gardens.</li>
+                                <li><strong>Yūgen:</strong> Sophisticated architecture.</li>
+                                <li><strong>Seijaku:</strong> Meditation decks & Zen Tea Pavilions.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Key Details</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Plot Sizes:</strong> 2,400 to 6,000+ sq ft</li>
+                                <li><strong>Developer:</strong> Manyata Developers Pvt. Ltd.</li>
+                                <li><strong>Amenities:</strong> 10,000 sq ft clubhouse, saltwater pools.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-neon-orange font-bold text-lg mb-2">Location Highlights</h4>
+                        <p>Located on Sarjapur Main Road, offering seamless connectivity to Whitefield, ORR, and Electronic City. Close to premium schools and hospitals.</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: NVT Symphony -->
+    <div id="modal-nvt" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-orange w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-nvt')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <div class="flex justify-between items-start">
+                    <div>
+                        <h2 class="text-3xl font-bold text-neon-orange mb-2">NVT Symphony Of Orchards</h2>
+                        <p class="text-gray-400 mb-6">Luxury 4 BHK Villas | Volagerekallahalli, Sarjapur Road</p>
+                    </div>
+                    <div class="bg-neon-orange text-white px-3 py-1 rounded font-bold">₹ 4 Cr</div>
+                </div>
+
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <p>A luxury residential villa project by NVT Quality Lifestyle designed with a nature-centric approach, featuring private backyards and fruit-bearing trees within an 18-acre area.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Villa Features</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Configuration:</strong> 4 BHK + Home Office + Lounge</li>
+                                <li><strong>Size:</strong> 2,931 - 4,096 sq. ft.</li>
+                                <li><strong>Design:</strong> Double-height living rooms, sky-lit courtyards.</li>
+                                <li><strong>Fittings:</strong> Imported marble & wooden laminate.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Project Info</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Possession:</strong> Feb 2026 / Ready Options</li>
+                                <li><strong>Total Units:</strong> 161 Villas</li>
+                                <li><strong>RERA:</strong> PRM/KA/RERA/1251/308/PR/210907/004297</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-neon-orange font-bold text-lg mb-2">Club Sapodilla Amenities</h4>
+                        <p>Gymnasium, swimming pool, squash courts, cricket pitch, library, business center, and landscaped orchard gardens (60% open space).</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Schedule Site Visit</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Geown Oasis -->
+    <div id="modal-geown" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-orange w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-geown')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <div class="flex justify-between items-start">
+                     <div>
+                        <h2 class="text-3xl font-bold text-neon-orange mb-2">Geown Oasis</h2>
+                        <p class="text-gray-400 mb-6">3 & 4 BHK Villas | V. Kallahalli, Off Sarjapur Road</p>
+                     </div>
+                     <div class="bg-neon-orange text-white px-3 py-1 rounded font-bold">₹ 1.7 Cr</div>
+                </div>
+
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <p>A villa community by Geown Casper Properties offered in multiple phases. Known for its open-plan concepts, abundant green spaces, and functional spacious layouts.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Phases</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Phase 1:</strong> 15 acres, 180+ villas (Ready).</li>
+                                <li><strong>Phase 2:</strong> 5.81 acres, 91 units (Ready).</li>
+                                <li><strong>Phase 3:</strong> 6 acres, 91 units (Possession July 2026).</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Amenities</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Clubhouse with multipurpose hall & gym.</li>
+                                <li>Swimming pool, tennis & basketball courts.</li>
+                                <li>Creche, library, and linear parks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Nambiar District 25 -->
+    <div id="modal-nambiar" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-green w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-nambiar')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-neon-green mb-2">Nambiar District 25</h2>
+                <p class="text-gray-400 mb-6">100-Acre Township | Muthanallur Cross, Sarjapur-Chandapura Road</p>
+                
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <p>Also known as "The Soho Life," this is a large-scale RERA-approved luxury township designed as a self-sustained community with 80% open spaces.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Project Details</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Type:</strong> 2, 2.5, 3, 4, 4.5 BHK Apartments.</li>
+                                <li><strong>Structure:</strong> High-rise towers (G+34 floors).</li>
+                                <li><strong>Possession:</strong> Phase 1 (Jan 2030), Phase 2 (Sept 2030).</li>
+                                <li><strong>RERA:</strong> PRM/KA/RERA/1251/308/PR/100125/007377</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Club SOHO & Amenities</h5>
+                            <p class="mb-2">7-acre recreation zone with a 2.5 lakh sq. ft. clubhouse.</p>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Adult & Kids Pools, Mini-theater, Spa.</li>
+                                <li>Tennis, Squash, Cricket Pitch, Pet Parks.</li>
+                                <li>Proposed Metro connectivity (Hebbal-Sarjapur).</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Download Brochure</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Amberstone -->
+    <div id="modal-amberstone" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-green w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-amberstone')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-neon-green mb-2">Amberstone Residences</h2>
+                <p class="text-gray-400 mb-6">Luxury Apartments | Chembenahalli, Off Sarjapur Road</p>
+                
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-neon-orange font-bold mb-2">Amberstone Ventara</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Config:</strong> 3 & 4 BHK (G+29 floors).</li>
+                                <li><strong>Features:</strong> No common walls, "Mini Forest", 11ft ceiling height.</li>
+                                <li><strong>Amenities:</strong> 38,000 sq.ft clubhouse.</li>
+                                <li><strong>Possession:</strong> ~2028/2030.</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-neon-orange font-bold mb-2">Amberstone Sleek</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Config:</strong> 3 BHK (G+27 floors).</li>
+                                <li><strong>Exclusivity:</strong> Only 5 units per floor.</li>
+                                <li><strong>Amenities:</strong> 23,000 sq.ft clubhouse, Infinity pool.</li>
+                                <li><strong>RERA Approved.</strong></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <p>Both projects emphasize Mivan construction technology, sustainable practices, and strategic location near major IT parks.</p>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Request Floor Plan</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal: Abhee Kings Court -->
+    <div id="modal-abhee" class="modal fixed inset-0 z-[150] flex items-center justify-center bg-black/90 backdrop-blur-sm p-4">
+        <div class="modal-content bg-[#111] border border-neon-green w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl relative">
+            <button onclick="closeModal('modal-abhee')" class="absolute top-4 right-4 text-white hover:text-neon-orange text-2xl z-10"><i class="fas fa-times"></i></button>
+            <div class="p-8">
+                <h2 class="text-3xl font-bold text-neon-green mb-2">Abhee Kings Court</h2>
+                <p class="text-gray-400 mb-6">Premium Apartments | Near Dommasandra Circle</p>
+                
+                <div class="space-y-6 text-gray-300 text-sm leading-relaxed">
+                    <p>A RERA-registered project offering luxurious living with a strong emphasis on modern amenities. 70% of the area is dedicated to open spaces and landscaped gardens.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Key Details</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li><strong>Config:</strong> 2 & 3 BHK.</li>
+                                <li><strong>Structure:</strong> B+S+9 floors.</li>
+                                <li><strong>Status:</strong> Under Construction (Possession June 2026).</li>
+                                <li><strong>RERA:</strong> PRM/KA/RERA/1251/308/PR/020323/005763</li>
+                            </ul>
+                        </div>
+                        <div class="bg-black p-4 rounded border border-gray-800">
+                            <h5 class="text-white font-bold mb-2">Amenities</h5>
+                            <ul class="list-disc list-inside space-y-1">
+                                <li>Swimming pool, gym, indoor games.</li>
+                                <li>Basketball & Tennis courts, Mini cricket pitch.</li>
+                                <li>Party hall, senior citizen sit-out.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-neon-orange font-bold text-lg mb-2">Location Advantage</h4>
+                        <p>Excellent connectivity to RGA Tech Park, Decathlon, Whitefield, and Electronic City. Close to Indus International School.</p>
+                    </div>
+                </div>
+                <div class="mt-8 text-center">
+                    <a href="index.html#contact" class="btn-neon px-8 py-3 rounded uppercase font-bold inline-block">Enquire Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer bg-black text-white border-t border-neon-orange pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
+                <div class="md:col-span-1">
+                    <a href="#" class="text-2xl font-montserrat font-black flex items-center gap-2 mb-6">
+                         <span class="text-neon-orange glow-text-orange">Ram Key Realty</span>
+                    </a>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Your dedicated partner in Bangalore's dynamic real estate market. Expert guidance for villas, apartments, and plots.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Quick Links</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="index.html" class="hover:text-neon-orange transition">Home</a></li>
+                        <li><a href="index.html#about" class="hover:text-neon-orange transition">About Us</a></li>
+                        <li><a href="properties.html" class="hover:text-neon-orange transition">Properties</a></li>
+                        <li><a href="blog.html" class="hover:text-neon-orange transition">Blog</a></li>
+                        <li><a href="index.html#services" class="hover:text-neon-orange transition">Services</a></li>
+                        <li><a href="index.html#clientele" class="hover:text-neon-orange transition">Clientele</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-orange transition">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Services</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li><a href="properties.html" class="hover:text-neon-green transition">Property Buying</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-green transition">Property Selling</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-green transition">Legal Vetting</a></li>
+                        <li><a href="index.html#contact" class="hover:text-neon-green transition">Valuation</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Contact</h3>
+                    <ul class="space-y-3 text-sm text-gray-400">
+                        <li>No.25, Dommasandra to Chandapura Main Road, Near Kunskapsskolan School, Chokkasandra Village, Bangalore 562125</li>
+                        <li>+91 99165 47171</li>
+                        <li>contact@ramkeyrealty.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-bold mb-6 font-montserrat text-white">Socials</h3>
+                    <div class="flex gap-4">
+                        <a href="#" class="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-neon-orange hover:text-white transition duration-300 text-neon-orange border border-neon-orange/30"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="w-8 h-8 rounded bg-white/10 flex items-center justify-center hover:bg-neon-green hover:text-black transition duration-300 text-neon-green border border-neon-green/30"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-xs text-gray-500">
+                <p>&copy; 2025 Ram Key Realty. All Rights Reserved.</p>
+                <div class="flex space-x-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-neon-orange">Privacy Policy</a>
+                    <a href="#" class="hover:text-neon-orange">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if(menuBtn){
+            menuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+
+        // Modal Logic
+        function openModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            // Small timeout to allow display:block to apply before adding opacity class for transition
+            setTimeout(() => {
+                modal.classList.add('active');
+            }, 10);
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300); // Wait for transition to finish
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on outside click
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                setTimeout(() => {
+                    event.target.classList.add('hidden');
+                }, 300);
+                document.body.style.overflow = 'auto';
+            }
+        }
+    </script>
+</body>
+</html>
